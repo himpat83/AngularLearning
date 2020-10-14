@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="App1" ng-controller="Ctrl1">
+
+    <h2>My Todo List</h2>
+
+    <form name="myForm" ng-submit="Add()">
+        <input type="text" name="input1" ng-model="txtInput1" size="50" placeholder="add1" required>
+        <span ng-show="(myForm.input1.$dirty || submitted) && myForm.input1.$error.required">
+          </span>
+        <input type="text" name="input2" ng-model="txtInput2" size="50" placeholder="add2" required>
+        <span ng-show="(myForm.input2.$dirty || submitted) && myForm.input2.$error.required">
+          </span>
+
+
+        <input type="submit" value="submitTask">
+    </form>
+
+    <br>
+
+    <div ng-repeat="x in dataList">
+        <input type="checkbox" ng-model="x.checked"> <span ng-bind="' 1. ' + x.Text1 + '  ' +' 2. '+ x.Text2 + ' '"></span>
+
+        <span ng-click="deleteToClick($index)">Delete ×</span>
+        </span>
+    </div>
+
+    <p><button ng-click="deleteData()">Delete marked</button></p>
+
+    <script src="./main.js">
+    </script>
+
+</body>
+
+</html>
